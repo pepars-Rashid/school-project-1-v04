@@ -10,7 +10,7 @@ export default function AdminLayout({
 
   return(
     <div className="flex gap-[25px] h-full">
-      <div className="flex-grow pt-[100px]">
+      <div className="flex-grow lg:pl-[25px] pt-[100px]">
         <Gridlayout className={''}>
         <Cardlayout
             className={ "col-span-4 lg:col-span-3 bg-green-200"}

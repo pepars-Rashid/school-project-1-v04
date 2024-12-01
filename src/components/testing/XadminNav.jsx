@@ -28,7 +28,7 @@ export default function Xsidebar(){
   return (
     <motion.nav
       layout
-      className="sticky top-0 w-[250px] h-screen shrink-0 border-l-[3px] border-slate-300 bg-white p-[25px]"
+      className="sticky hidden lg:block top-0 w-[250px] h-screen shrink-0 border-l-[3px] border-slate-300 bg-white p-[25px]"
     >
       <TitleSection />
       <div className="flex flex-col gap-[10px]">
