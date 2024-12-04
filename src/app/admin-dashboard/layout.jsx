@@ -1,3 +1,5 @@
+import Accordion from "@/components/testing/Accordion";
+import AccordionList from "@/components/testing/classification";
 import { Cardlayout, Gridlayout } from "@/components/testing/gridlayout";
 import Xsidebar from "@/components/testing/XadminNav";
 
@@ -11,21 +13,21 @@ export default function AdminLayout({
   return(
     <div className="flex gap-[25px] h-full">
       <div className="flex-grow lg:pl-[25px] pt-[100px]">
-        <Gridlayout className={''}>
+        <Gridlayout>
         <Cardlayout
-            className={ "col-span-4 lg:col-span-3 bg-green-200"}
+            className={ "col-span-4 lg:col-span-3"}
           >
             1
           </Cardlayout>
 
           <Cardlayout
-            className={ "col-span-4 lg:col-span-1 bg-green-400"}
+            className={ "z-40 col-span-4 lg:col-span-1"}
           >
-            2
+            <AccordionList/>
           </Cardlayout>
 
           <Cardlayout
-            className={"col-span-4 lg:col-span-4 h-[349px] bg-green-600"}
+            className={"col-span-4 lg:col-span-4 h-[350px]"}
           >
             3
           </Cardlayout>
