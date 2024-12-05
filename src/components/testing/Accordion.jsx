@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { FiArrowLeft, FiChevronDown, FiEdit, FiMoreVertical, FiPlus, FiTrash2 } from 'react-icons/fi';
 
-export default function Accordion({level, sections}){
+export default function Accordion({level, sections, setDisableScroll}){
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
@@ -19,7 +19,7 @@ export default function Accordion({level, sections}){
           onClick={toggleAccordion}
         >
           <div className='flex gap-[10px] items-center'>
-            <ThreeDotsMenu/>
+            <ThreeDotsMenu setDisableScroll={setDisableScroll}/>
             <span>
               {level}
             </span>
@@ -42,7 +42,7 @@ export default function Accordion({level, sections}){
             {sections.map((section, index) => ( 
               <li key={index}> 
                 <button className="w-full h-[34px] flex justify-between px-[10px] items-center hover:bg-gray-100 dark:hover:bg-gray-100"> 
-                  <div className="flex items-center gap-[12px]"> <ThreeDotsMenu isSection={true} /> 
+                  <div className="flex items-center gap-[12px]"> <ThreeDotsMenu isSection={true} setDisableScroll={setDisableScroll}/> 
                     <span>{section}</span>
                   </div>
                   <FiArrowLeft />
@@ -56,16 +56,16 @@ export default function Accordion({level, sections}){
   );
 };
 
-const ThreeDotsMenu = ({ isSection }) => {  
+const ThreeDotsMenu = ({ isSection, setDisableScroll }) => {  
   const [isOpen, setIsOpen] = useState(false);  
   const dropdownRef = useRef(null);  
   const buttonRef = useRef(null);  
-
 
   useEffect(() => {  
     const handler = (e) => {  
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {  
         setIsOpen(false);  
+        setDisableScroll(false)
       }  
     };  
 
@@ -77,7 +77,8 @@ const ThreeDotsMenu = ({ isSection }) => {
 
   const toggleDropdown = (e) => {  
     e.stopPropagation();  
-    setIsOpen((prev) => !prev);
+    setIsOpen(!isOpen);
+    setDisableScroll(true)
   };  
 
   return (  
