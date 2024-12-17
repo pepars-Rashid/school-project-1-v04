@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 
 export default function AccordionList() {  
   const [disableScroll, setDisableScroll] = useState(false);  
-  const scrollableContainerRef = useRef(null); // Ref for the scrollable container  
+  const scrollableContainerRef = useRef(null);  
 
   const data = [  
     { id: 100, level: 'الصف الأول', sections: ['الشعبة الأولى', 'الشعبة الثانية'] },  
@@ -21,7 +21,7 @@ export default function AccordionList() {
 
   const handleScroll = (event) => {  
     if (disableScroll) {  
-      event.preventDefault(); // Prevent the default scrolling behavior  
+      event.preventDefault();  
     }  
   };  
 
@@ -59,14 +59,14 @@ export default function AccordionList() {
         <AnimatedSubscribeButton  
           subscribeStatus={false}  
           initialText={  
-            <span className="w-full h-full text-[12px] font-semibold flex justify-center items-center">  
-              <FiPlus className="ml-[8px] text-[18px] transition-transform duration-300 hover:translate-x-1" />  
+            <span className="group w-full h-full text-[12px] font-semibold flex justify-center items-center">  
+              <FiPlus className="ml-[8px] text-[18px] transition-transform duration-300 group-hover:translate-x-1" />  
               إضافة  
             </span>  
           }  
           changeText={  
-            <span className="w-full h-full flex justify-center items-center">  
-              <FiCheck className="text-[24px] text-green-500" />  
+            <span className="group w-full h-full flex justify-center items-center">  
+              <FiCheck className="text-[24px] text-green-500 group-hover:text-[30px]"/>  
             </span>  
           }  
         />  

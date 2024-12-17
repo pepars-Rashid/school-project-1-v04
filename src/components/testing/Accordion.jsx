@@ -94,20 +94,20 @@ const ThreeDotsMenu = ({ isSection, setDisableScroll }) => {
           }}  
         >  
           <ul className="p-[1px] text-sm">  
-            <li className="flex justify-start items-center gap-[5px] rounded-md px-4 py-2 text-gray-700 hover:bg-gray-100">  
-              <FiPlus />  
-              إضافة  
-            </li>  
-            {!isSection && (  
+            {!isSection && ( 
+              <li className="flex justify-start items-center gap-[5px] rounded-md px-4 py-2 text-gray-700 hover:bg-gray-100">  
+                <FiPlus />  
+                إضافة  
+              </li>   
+            )} 
               <li className="flex justify-start items-center gap-[5px] rounded-md px-4 py-2 text-gray-700 hover:bg-gray-100">  
                 <FiEdit />  
                 تعديل  
+              </li>    
+              <li className="flex justify-start items-center gap-[5px] rounded-md px-4 py-2 text-gray-700 hover:bg-gray-100">  
+                <FiTrash2 />  
+                حذف  
               </li>  
-            )}  
-            <li className="flex justify-start items-center gap-[5px] rounded-md px-4 py-2 text-gray-700 hover:bg-gray-100">  
-              <FiTrash2 />  
-              حذف  
-            </li>  
           </ul>  
         </div>  
       )}  
