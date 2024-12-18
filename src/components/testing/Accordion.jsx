@@ -102,7 +102,7 @@ const ThreeDotsMenu = ({ isSection, setDisableScroll, listIsOpen, pos1, pos2 }) 
         <div  
           className="absolute z-50 mt-[5px] w-[120px] rounded-md shadow-xl bg-white ring-1 ring-black ring-opacity-5"  
           style={{  
-            top: `${buttonRef.current.getBoundingClientRect().bottom-100 + window.scrollY }px`,  
+            top: `${buttonRef.current.getBoundingClientRect().bottom- (window.innerWidth < 1024 ? 620 : 100) + window.scrollY }px`,  
           }}  
         >  
           <ul className="p-[1px] text-sm">  
