@@ -1,10 +1,13 @@
 'use client';  
-import { FiCheck, FiPlus } from "react-icons/fi";  
+import { FiCheck, FiPlus, FiX } from "react-icons/fi";  
 import Accordion from "./Accordion";  
 import { AnimatedSubscribeButton } from "./animated-Button";  
-import { useState, useEffect, useRef } from "react";  
+import { useState, useEffect, useRef, useContext } from "react";  
+import { ClickContext } from "./clickContex";
+import EditableForm from "./editable-class";
 
 export default function AccordionList() {  
+  const {clicked, postion} = useContext(ClickContext)
   const [disableScroll, setDisableScroll] = useState(false);  
   const scrollableContainerRef = useRef(null);  
 
@@ -78,10 +81,11 @@ export default function AccordionList() {
       <div  
         ref={scrollableContainerRef} // Attach ref to the container  
         className="flex-grow flex flex-col gap-[5px] p-[10px] overflow-y-auto"  
-      >  
+        >
+        { (clicked && postion.pos1===-1 && postion.pos2===-1 ) &&  <EditableForm/> }   
         {data.map((item) => (  
-          <Accordion key={item.id} level={item.level} sections={item.sections} setDisableScroll={setDisableScroll} />  
-        ))}  
+          <Accordion key={item.id} pos1={item.id} level={item.level} sections={item.sections} setDisableScroll={setDisableScroll} />  
+        ))}
       </div>  
     </div>  
   );  

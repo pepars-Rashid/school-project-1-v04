@@ -1,5 +1,6 @@
 import Accordion from "@/components/testing/Accordion";
 import AccordionList from "@/components/testing/classification";
+import { ClickProvider } from "@/components/testing/clickContex";
 import { Cardlayout, Gridlayout } from "@/components/testing/gridlayout";
 import Xsidebar from "@/components/testing/XadminNav";
 
@@ -23,7 +24,9 @@ export default function AdminLayout({
           <Cardlayout
             className={ "z-40 col-span-4 lg:col-span-1"}
           >
-            <AccordionList/>
+            <ClickProvider>
+              <AccordionList/>
+            </ClickProvider>
           </Cardlayout>
 
           <Cardlayout

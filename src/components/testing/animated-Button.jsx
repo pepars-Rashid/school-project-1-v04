@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { ClickContext } from "./clickContex";
 
 
 export const AnimatedSubscribeButton = ({
@@ -11,14 +12,14 @@ export const AnimatedSubscribeButton = ({
   changeText,
   initialText,
 }) => {
-  const [isSubscribed, setIsSubscribed] = useState(subscribeStatus);
+  const {clicked, action} = useContext(ClickContext)
 
   return (
     <AnimatePresence mode="wait">
-      {isSubscribed ? (
+      {clicked ? (
         <motion.button
           className="relative flex w-[75px] h-[35px] items-center justify-center overflow-hidden border-[3px] border-[#BFBFBF] rounded-md bg-white outline outline-1 outline-black"
-          onClick={() => setIsSubscribed(false)}
+          onClick={() => action(!clicked)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -37,7 +38,7 @@ export const AnimatedSubscribeButton = ({
         <motion.button
           className="relative flex w-[75px] h-[35px] cursor-pointer items-center justify-center border-[3px] border-[#BFBFBF] rounded-md"
           style={{ backgroundColor: buttonColor, color: buttonTextColor }}
-          onClick={() => setIsSubscribed(true)}
+          onClick={() => action(!clicked)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
